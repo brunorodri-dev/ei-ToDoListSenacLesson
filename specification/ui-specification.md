@@ -16,7 +16,7 @@ Este documento descreve a interface de uma aplicação **Todo List moderna**, co
 ## 2. 🖼️ Layout (Wireframe)
 
 ```
-wireframe.png
+/wireframe.png
 
 ```
 
