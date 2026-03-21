@@ -34,7 +34,13 @@
 
         <!-- TODO: criar 3 cards -->
         <!-- Dica: Total | Ativas | Completas -->
-
+        <div class="cards">
+            <span class="number">3</span>
+            <span class="number">2</span>
+            <span class="number">1</span>
+        </div>
+        <input name=" " form="text" type="text">
+        <button onclick="" id>+ Adicionar</button>
     </section>
 
 
@@ -51,17 +57,18 @@
          FILTROS (PARCIAL)
          Aluno: pode estilizar e melhorar
     =============================== -->
-    <section class="filters">
-        <button class="filter active">Todas</button>
-        <button class="filter">Ativas</button>
-        <button class="filter">Completas</button>
-    </section>
+   <section class="filters">
+    <button class="filter active" data-filter="all">Todas</button>
+    <button class="filter" data-filter="active">Ativas</button>
+    <button class="filter" data-filter="completed">Completas</button>
+</section>
 
 
     <!-- ===============================
         LISTA (PRONTA E VAZIA)
     =============================== -->
     <section class="tasks">
+    
         <!-- JS vai renderizar aqui -->
     </section>
 
