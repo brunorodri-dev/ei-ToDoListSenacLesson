@@ -1,117 +1,139 @@
 /* ===============================
-   RESET (PRONTO)
+   🎯 DESAFIO 2 (cores)
 =============================== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto Mono', monospace;
+:root {
+    --bg: #0f172a;
+    --card: #1e293b;
+    --primary: #3b82f6;
+    --text: #f1f5f9;
+    --muted: #94a3b8;
+    --success: #22c55e;
 }
 
-/* ===============================
-   🎯 DESAFIO 2 (CSS)
-   👉 Criar variáveis de cor
-=============================== */
-:root{
-    /* TODO: criar cores do projeto */
-}
 
 /* ===============================
-   BODY (PRONTO)
+   BODY
 =============================== */
 body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
     padding: 40px 20px;
-
-    /* TODO: adicionar background bonito */
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: var(--text);
 }
 
+
 /* ===============================
-   CONTAINER (BASE PRONTA)
+   HEADER
 =============================== */
-.container {
-    width: 100%;
-    max-width: 600px;
-    padding: 20px;
+.header h1 {
+    font-size: 2rem;
+    margin-bottom: 5px;
 }
 
-/* ===============================
-   🎯 DESAFIO 3 (CSS)
-   👉 Estilizar HEADER
-=============================== */
-.header {
-    text-align: center;
+.header p {
+    color: var(--muted);
 }
 
+
 /* ===============================
-   🎯 DESAFIO 4 (CSS)
-   👉 Criar layout dos CARDS
+   CARDS
 =============================== */
 .stats {
-    margin: 20px 0;
-}
-
-/* ===============================
-   ADD TASK (BASE)
-=============================== */
-.add-task {
     display: flex;
     gap: 10px;
 }
 
+.card {
+    flex: 1;
+    background: var(--card);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.card h3 {
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+.card span {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+
+/* ===============================
+   ADD TASK
+=============================== */
 .add-task input {
     flex: 1;
     padding: 10px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
 }
 
 .btn-add {
+    background: var(--primary);
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 6px;
     cursor: pointer;
 }
 
+.btn-add:hover {
+    opacity: 0.8;
+}
+
+
 /* ===============================
-   🎯 DESAFIO 5 (CSS)
-   👉 Estilizar filtros
+   FILTROS
 =============================== */
 .filters {
     display: flex;
     gap: 10px;
-    background: #1e1e1e;
-    padding: 8px;
-    border-radius: 12px;
-    width: fit-content;
 }
 
 .filter {
+    flex: 1;
+    padding: 8px;
     border: none;
-    padding: 8px 16px;
-    border-radius: 8px;
-    background: transparent;
-    color: #aaa;
+    background: var(--card);
+    color: var(--text);
     cursor: pointer;
-    font-weight: 500;
-    transition: all 0.25s ease;
+    border-radius: 6px;
+}
+
+.filter.active {
+    background: var(--primary);
 }
 
 
 /* ===============================
-   🎯 DESAFIO 6 (CSS)
-   👉 Estilizar tarefas
+   TASKS
 =============================== */
-.tasks {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
 .task {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--card);
     padding: 10px;
-    border: 1px solid #ccc;
+    border-radius: 6px;
 }
 
-/* Classe importante (JS usa!) */
-.completed {
-    text-decoration: line-through;
-    opacity: 0.6;
+.task span {
+    flex: 1;
+    margin-left: 10px;
+}
+
+.task button {
+    background: red;
+    border: none;
+    color: white;
+    padding: 5px 8px;
+    cursor: pointer;
+    border-radius: 4px;
 }
