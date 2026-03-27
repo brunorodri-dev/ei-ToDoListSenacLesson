@@ -1,68 +1,141 @@
 // ===============================
 // 🎯 DESAFIO 7 (JS)
-// 👉 Selecionar elementos do DOM
 // ===============================
 const input = document.querySelector("input");
 const btnAdd = document.querySelector(".btn-add");
 const tasksContainer = document.querySelector(".tasks");
 
-// ===============================
-// ESTADO
-// ===============================
 let tasks = [];
 
 
 // ===============================
-// 🎯 DESAFIO 8 (JS)
-// 👉 Criar função addTask()
+// 🎯 DESAFIO 8 (addTask)
 // ===============================
 function addTask() {
 
-    // 1. pegar valor do input
+    const text = input.value.trim();
 
-    // 2. validar vazio
+    if (text === "") return;
 
-    // 3. criar objeto tarefa
-    // dica: { id, text, completed }
+    const newTask = {
+        id: Date.now(),
+        text: text,
+        completed: false
+    };
 
-    // 4. adicionar no array
+    tasks.push(newTask);
 
-    // 5. limpar input
+    input.value = "";
 
-    // 6. chamar renderTasks()
+    renderTasks();
 }
 
 
 // ===============================
-// 🎯 DESAFIO 9 (JS)
-// 👉 Renderizar tarefas
+// 🎯 DESAFIO 9 (renderTasks)
 // ===============================
 function renderTasks() {
 
-    // limpar container
+    tasksContainer.innerHTML = "";
 
-    // percorrer tasks
+    tasks.forEach(task => {
 
-    // criar elemento div
+        const div = document.createElement("div");
+        div.classList.add("task");
 
-    // adicionar checkbox + texto
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.checked = task.completed;
 
-    // adicionar no DOM
+        checkbox.addEventListener("change", () => {
+            toggleTask(task.id);
+        });
+
+        const span = document.createElement("span");
+        span.textContent = task.text;
+
+        if (task.completed) {
+            span.classList.add("completed");
+        }
+
+        const btnRemove = document.createElement("button");
+        btnRemove.textContent = "X";
+
+        btnRemove.addEventListener("click", () => {
+            removeTask(task.id);
+        });
+
+        div.appendChild(checkbox);
+        div.appendChild(span);
+        div.appendChild(btnRemove);
+
+        tasksContainer.appendChild(div);
+    });
+
+    updateStats();function renderTasks() {
+
+    tasksContainer.innerHTML = "";
+
+    tasks.forEach(task => {
+
+        const div = document.createElement("div");
+        div.classList.add("task");
+
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.checked = task.completed;
+
+        checkbox.addEventListener("change", () => {
+            toggleTask(task.id);
+        });
+
+        const span = document.createElement("span");
+        span.textContent = task.text;
+
+        if (task.completed) {
+            span.classList.add("completed");
+        }
+
+        const btnRemove = document.createElement("button");
+        btnRemove.textContent = "X";
+
+        btnRemove.addEventListener("click", () => {
+            removeTask(task.id);
+        });
+
+        div.appendChild(checkbox);
+        div.appendChild(span);
+        div.appendChild(btnRemove);
+
+        tasksContainer.appendChild(div);
+    });
+
+    updateStats(); 
+}
+}
+
+// ===============================
+// 🎯 DESAFIO 10 (toggle)
+// ===============================
+function toggleTask(id) {
+    tasks = tasks.map(task => {
+        if (task.id === id) {
+            return { ...task, completed: !task.completed };
+        }
+        return task;
+    });
+
+    renderTasks();
 }
 
 
 // ===============================
-// 🎯 DESAFIO 10 (JS)
-// 👉 Marcar como concluída
+// 🎯 DESAFIO 11 (remove)
 // ===============================
-// Dica: usar addEventListener("change")
-
-
-// ===============================
-// 🎯 DESAFIO 11 (JS)
-// 👉 Remover tarefa
-// ===============================
-// Dica: usar filter()
+function removeTask(id) {
+    tasks = tasks.filter(task => task.id !== id);
+    renderTasks();
+}
 
 
 // ===============================
