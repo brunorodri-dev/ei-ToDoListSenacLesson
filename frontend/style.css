@@ -2,14 +2,12 @@
    🎯 DESAFIO 2 (cores)
 =============================== */
 :root {
-    --bg: #0f172a;
-    --card: #1e293b;
-    --primary: #3b82f6;
-    --text: #f1f5f9;
-    --muted: #94a3b8;
-    --success: #22c55e;
+    --bg: #0a0a0a;
+    --card: #121212;
+    --primary: #1db954; /* Spotify vibe */
+    --text: #ffffff;
+    --muted: #b3b3b3;
 }
-
 
 /* ===============================
    BODY
@@ -19,7 +17,8 @@ body {
     display: flex;
     justify-content: center;
     padding: 40px 20px;
-    background: linear-gradient(135deg, #0f172a, #1e293b);
+
+    background: linear-gradient(to bottom, #2a2a2a, #000000);
     color: var(--text);
 }
 
@@ -67,23 +66,29 @@ body {
 /* ===============================
    ADD TASK
 =============================== */
+.add-task {
+    display: flex;
+    margin-top: 20px;
+}
+
 .add-task input {
     flex: 1;
-    padding: 10px;
-    border-radius: 6px;
+    padding: 14px;
     border: none;
     outline: none;
+    border-radius: 30px 0 0 30px;
+    background: #1a1a1a;
+    color: white;
 }
 
 .btn-add {
-    background: var(--primary);
+    padding: 14px 20px;
     border: none;
+    background: #1db954;
     color: white;
-    padding: 10px 15px;
-    border-radius: 6px;
     cursor: pointer;
+    border-radius: 0 30px 30px 0;
 }
-
 .btn-add:hover {
     opacity: 0.8;
 }
@@ -118,22 +123,50 @@ body {
 .task {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    background: var(--card);
-    padding: 10px;
-    border-radius: 6px;
+    gap: 10px;
+
+    background: #181818;
+    padding: 7px 10px; /* ↓ reduzido ~30% */
+    border-radius: 8px;
+
+    transition: 0.2s;
+}
+
+.task:hover {
+    background: #222;
+}
+
+.task::before {
+    content: "🎵";
 }
 
 .task span {
     flex: 1;
-    margin-left: 10px;
+    font-size: 0.9rem;
+}
+
+.task input[type="checkbox"] {
+    transform: scale(0.9);
+    cursor: pointer;
 }
 
 .task button {
-    background: red;
+    background: transparent;
     border: none;
-    color: white;
-    padding: 5px 8px;
+    color: #888;
     cursor: pointer;
-    border-radius: 4px;
+}
+
+.task button:hover {
+    color: red;
+}
+.tasks {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.completed {
+    text-decoration: line-through;
+    opacity: 0.5;
 }

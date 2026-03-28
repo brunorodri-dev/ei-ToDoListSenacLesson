@@ -1,5 +1,4 @@
 function renderTasks() {
-
     tasksContainer.innerHTML = "";
 
     tasks.forEach(task => {
@@ -17,6 +16,12 @@ function renderTasks() {
 
         const span = document.createElement("span");
         span.textContent = task.text;
+
+        // clicar na tarefa
+        span.addEventListener("click", () => {
+            document.getElementById("nowPlaying").textContent =
+                "Tarefa: " + task.text;
+        });
 
         if (task.completed) {
             span.classList.add("completed");
@@ -36,5 +41,5 @@ function renderTasks() {
         tasksContainer.appendChild(div);
     });
 
-    updateStats(); // 🔥 AQUI
+    updateStats();
 }
